@@ -1,0 +1,23 @@
+package Principal;
+
+import java.util.Date;
+
+import Observer.Entregador;
+import Observer.Solicitação;
+
+public class Principal {
+	public static void main(String[] args) {
+
+		String novaSolicitacao = "Entrega Impressora pizza gigantesca";;
+		String empresaSolicitante = "NerisPizzaria";
+		String quantidadeEntregadores = "2";
+		//String diasDaSemana = "Segunda e Quarta";
+		
+        Solicitação solicitacao = new Solicitação();    
+        Entregador entregador = new Entregador(solicitacao);
+         
+		solicitacao.setNovaSolicitação(novaSolicitacao, empresaSolicitante, quantidadeEntregadores);
+    }
+ 
+
+}
