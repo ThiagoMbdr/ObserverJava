@@ -1,0 +1,35 @@
+package Observer;
+
+import java.util.Date;
+import java.util.Observable;
+import java.util.Observer;
+
+public class Entregador implements Observer{
+
+		Observable solicitação;
+		 
+		String novaSolicitacao;
+		String empresaSolicitante;
+		String quantidadeEntregadores;
+		String diasDaSemana;
+		
+		public Entregador(Observable Solicitação) {
+			this.solicitação = Solicitação;
+			Solicitação.addObserver(this);
+			
+		}
+
+		public void update(Observable solicitaçãoSubject, Object arg) {
+			
+			if (solicitaçãoSubject instanceof Solicitação) {
+	            Solicitação solicitacao = (Solicitação) solicitaçãoSubject;
+	            novaSolicitacao = solicitacao.getidSolicitação();
+	            empresaSolicitante = solicitacao.getEmpresa();
+	           // diasDaSemana = solicitacao.getdiasDaSemana();
+	            quantidadeEntregadores = solicitacao.getquantidadeEntregadores();
+	            System.out.println("Atenção, nova notificação para Entrega.\n" +
+	            "Esta é uma Solicitação de: " + novaSolicitacao + "\nEmpresa: " + empresaSolicitante + "\nQuantidade de Entregadores: " + quantidadeEntregadores + "\nDias da Semanada: " + diasDaSemana);
+	        }
+			
+		}
+}
