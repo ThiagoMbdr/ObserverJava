@@ -1,0 +1,39 @@
+package Observer;
+
+import java.util.Date;
+import java.util.Observable;
+
+public class Solicitação extends Observable {
+
+	public String idSolicitação;
+	private String empresaSolicitante;
+	private String quantidadeEntregadores;
+	//private String diasDaSemana;
+
+	public void setNovaSolicitação(String solicitação, String empresa, String quantentregadores) {
+		this.idSolicitação = solicitação;
+		this.empresaSolicitante = empresa;
+		this.quantidadeEntregadores = quantentregadores;
+		//this.diasDaSemana = diasDaSemana;
+
+		setChanged();
+		notifyObservers();
+	}
+
+	public String getidSolicitação() {
+		return this.idSolicitação;
+	}
+
+	public String getEmpresa() {
+		return this.empresaSolicitante;
+	}
+
+	public String getquantidadeEntregadores() {
+		return this.quantidadeEntregadores;
+	}
+
+	//public String getdiasDaSemana() {
+	//	return this.getdiasDaSemana();
+	//}
+
+}
